@@ -1,0 +1,39 @@
+{
+  "name": "hapi-clean-archi-demo",
+  "version": "1.0.0",
+  "description": "demo of clean archi with HAPI and inversifyJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test nyc --reporter=lcov --require mocha -r ts-node/register test/**/*.{ts,js}"
+  },
+  "author": "Benoit MERIAUX",
+  "license": "MIT",
+  "dependencies": {
+    "good": "^8.1.1",
+    "good-console": "^7.1.0",
+    "hapi": "^17.8.1",
+    "hapi-swagger": "^9.2.0",
+    "inversify": "^5.0.1",
+    "joi": "^14.3.0",
+    "reflect-metadata": "^0.1.12",
+    "vision": "^5.4.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/hapi": "^17.8.0",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.12",
+    "@types/sinon": "^5.0.7",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "sinon": "^7.1.1",
+    "sinon-chai": "^3.3.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.1"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  }
+}
