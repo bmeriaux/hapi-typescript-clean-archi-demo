@@ -1,9 +1,10 @@
 import * as Hapi from "hapi";
 import * as Boom from "boom";
 import Task from "../../application/domain/task/task";
-import CreateTask from "../../application/usecase/createTask";
 import DeleteTask from "../../application/usecase/deleteTask";
 import GetAllTasks from "../../application/usecase/getAllTasks";
+import { CreateTask } from "../../application/usecase/createTask";
+
 
 export default class TaskController {
     private createTask: CreateTask;

@@ -1,6 +1,9 @@
 import * as Hapi from "hapi";
-import TasksRoute from "./tasksRoute";
+import { RoutesBuilder } from "./routesBuilder";
+import inversifyContainer from "../ioc/inversifyContainer";
+
 
 export default function (server: Hapi.Server) {
-    server.route(tasksRoute.buildRoutes());
+    const routesBuilders = inversifyContainer.getAll<RoutesBuilder>("RoutesBuilder");
+    routesBuilders.forEach((routesBuilder: RoutesBuilder) => server.route(routesBuilder.buildRoutes()));
 }

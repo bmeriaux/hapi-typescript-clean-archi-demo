@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import Server from "./infrastructure/server";
 
 console.log(`Running environment ${process.env.NODE_ENV || "dev"}`);

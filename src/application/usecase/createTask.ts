@@ -1,15 +1,12 @@
-import TaskRepository from "../domain/task/taskRepository";
 import Task from "../domain/task/task";
+import TaskRepository from "../domain/task/taskRepository";
 
-export default class CreateTask {
-    private taskRepository: TaskRepository;
+export  interface CreateTask {
+    create(newTask: Task): Promise<Task>;
+}
 
-    constructor(taskRepository: TaskRepository) {
-        this.taskRepository = taskRepository;
-    }
-
-    public async create(newTask: Task): Promise<Task> {
-        return this.taskRepository.create(newTask);
+export default function func(taskRepository: TaskRepository): CreateTask {
+    return {
+        create: async (newTask: Task) => taskRepository.create(newTask)
     };
-
 }

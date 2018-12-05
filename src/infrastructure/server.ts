@@ -12,16 +12,16 @@ const server = new Hapi.Server({
 });
 
 //  Setup Hapi Plugins
-const pluginsPath = __dirname + '/libs/plugins/';
+const pluginsPath = __dirname + "/hapi/plugins/";
 const plugins = fs.readdirSync(pluginsPath).filter(file => fs.statSync(path.join(pluginsPath, file)).isDirectory());
 
-plugins.forEach((pluginName: string) => {
-    const plugin: HapiPlugin = (require("./libs/plugins/" + pluginName)).default();
+plugins.forEach(async (pluginName: string) => {
+    const plugin: HapiPlugin = (require("./hapi/plugins/" + pluginName)).default();
     console.log(`Register Plugin ${plugin.info().name} v${plugin.info().version}`);
-    plugin.register(server);
+    await plugin.register(server);
 });
 
-//Register Routes
+// Register Routes
 Routes(server);
 
 export default server;
