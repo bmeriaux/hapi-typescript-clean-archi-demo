@@ -1,4 +1,4 @@
-import { IEntity } from "./entity";
+import { IEntity } from "../entity";
 
 interface Task extends IEntity {
     name: string;

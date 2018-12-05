@@ -1,5 +1,5 @@
 import * as Hapi from "hapi";
-import Routes from "./routes";
+import Routes from "./route";
 import * as path from "path";
 import * as fs from "fs";
 import { HapiPlugin } from "./hapi/plugins/hapiPlugin";

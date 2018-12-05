@@ -11,11 +11,14 @@ export default (): HapiPlugin => {
                     events: {error: '*', log: '*', response: '*', request: '*'}
                 }]
             };
-
-            await server.register({
-                plugin: require('good'),
-                options: opts
-            });
+            try {
+                await server.register({
+                    plugin: require('good'),
+                    options: opts
+                });
+            } catch (error) {
+                console.error(error);
+            }
         },
         info: () => {
             return {

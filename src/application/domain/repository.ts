@@ -1,13 +1,13 @@
-import {IEntity} from "../../application/domain/entity";
+import { IEntity } from "./entity";
 
 export interface IRepository<T extends IEntity> {
+    findAll(): Promise<Array<T>>;
+
     findById(id: string): Promise<T>;
 
-    findByIdAndDelete(id: string): Promise<T>;
+    delete(id: string): Promise<T>;
 
-    findByIdAndUpdate(id: string, entity: T): Promise<T>;
-
-    find(filter: Object, top?: number, skip?: number): Promise<Array<T>>;
+    update(id: string, entity: T): Promise<T>;
 
     create(entity: T): Promise<T>;
 }

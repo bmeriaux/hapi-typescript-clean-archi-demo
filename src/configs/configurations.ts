@@ -1,8 +1,7 @@
-import { IRepositoryConfig, IServerConfig } from "./interfaces";
-import { injectable, inject } from "inversify";
+import { injectable } from "inversify";
 
 @injectable()
-export default class Configurations implements IRepositoryConfig, IServerConfig {
+export default class Configurations {
 
     private configs: any;
 
@@ -11,6 +10,11 @@ export default class Configurations implements IRepositoryConfig, IServerConfig 
         this.configs = require(`./configurations.${env}`).default();
     }
 
-    public get connectionString() { return this.configs.repository.connectionString; }
-    public get port() { return this.configs.server.port; }
+    public get connectionString() {
+        return this.configs.repository.connectionString;
+    }
+
+    public get port() {
+        return this.configs.server.port;
+    }
 }
